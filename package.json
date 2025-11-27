@@ -4,7 +4,7 @@
 "scripts": {
   "ng": "ng",
   "start": "ng serve",
-  "build": "npm run build",
+  "build": "ng build",
   "build:ssr": "ng build && ng run app.mavinpharma.web:server",
   "serve:ssr": "node dist/app.mavinpharma.web/server/server.mjs",
   "watch": "ng build --watch --configuration development",
