@@ -1,14 +1,16 @@
 {
   "name": "app.mavinpharma.web",
   "version": "0.0.0",
-  "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test",
-    "serve:ssr:app.mavinpharma.web": "node dist/app.mavinpharma.web/server/server.mjs"
-  },
+"scripts": {
+  "ng": "ng",
+  "start": "ng serve",
+  "build": "npm run build:ssr",
+  "build:ssr": "ng build && ng run app.mavinpharma.web:server",
+  "serve:ssr": "node dist/app.mavinpharma.web/server/server.mjs",
+  "watch": "ng build --watch --configuration development",
+  "test": "ng test"
+}
+,
   "private": true,
   "dependencies": {
     "@angular/animations": "^17.3.0",

@@ -1,10 +1,19 @@
 {
   "version": 2,
   "builds": [
-    { "src": "dist/app.mavinpharma.web/server/server.mjs", "use": "@vercel/node" },
-    { "src": "dist/app.mavinpharma.web/browser/**", "use": "@vercel/static" }
+    {
+      "src": "dist/app.mavinpharma.web/server/server.mjs",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "dist/app.mavinpharma.web/browser/**",
+      "use": "@vercel/static"
+    }
   ],
   "routes": [
-    { "src": "/(.*)", "dest": "dist/app.mavinpharma.web/server/server.mjs" }
+    {
+      "src": "/(.*)",
+      "dest": "dist/app.mavinpharma.web/server/server.mjs"
+    }
   ]
 }
