@@ -3,7 +3,7 @@
 // Load the Angular server bundle
 import { app } from './dist/app.mavinpharma.web/server/server.mjs';
 
-// Export a request handler for Vercel
 export default function handler(req, res) {
   return app()(req, res);
 }
+
