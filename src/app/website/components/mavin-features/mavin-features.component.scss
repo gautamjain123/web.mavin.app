@@ -31,7 +31,7 @@ background: linear-gradient(
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 40px;
-  padding: 20px 40px;
+  padding: 20px 0px;
 }
 
 .feature-box {
@@ -84,5 +84,6 @@ background: linear-gradient(
 @media (max-width: 900px) {
   .pharma-features {
     grid-template-columns: 1fr;
+    padding: 20px 0px;
   }
 }
