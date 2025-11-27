@@ -1,0 +1,64 @@
+.contactus-section {
+  position: relative;
+  border-radius: 24px;
+
+  /* PHARMA THEME GRADIENT */
+  background: linear-gradient(
+      130deg,
+      #1d6dd8 0%,     /* Primary Pharma Blue */
+      #0d3768 100%    /* Deep Medical Navy */
+  );
+
+  padding: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+/* TEXT */
+.contactus-section p {
+  color: #ffffff;
+  font-family: 'Urbanist', sans-serif;
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 150%;
+  margin: 0px;
+  width: 50%;
+}
+
+/* RIGHT-SIDE IMAGE */
+.contactus-section::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+
+  /* Replace with your theme illustration */
+  background: url('../../../../assets/images/ias-contact-rings.png') 
+      no-repeat center right;
+
+  background-size: cover;
+  border-top-right-radius: 24px;
+  border-bottom-right-radius: 24px;
+}
+
+/* BUTTON UPDATED TO THEME */
+.btn-black {
+  background: #ffffff;  /* Your existing green CTA (from product section) */
+  border: none;
+  padding: 12px 24px;
+  border-radius: 10px;
+  color: rgb(0, 0, 0);
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.25s;
+  box-shadow: 0 6px 18px rgba(29, 109, 216, 0.25);
+}
+
+.btn-black:hover {
+  background: #ffffffa4; /* darker green on hover */
+}

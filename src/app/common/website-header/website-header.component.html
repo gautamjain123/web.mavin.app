@@ -1,0 +1,28 @@
+<header class="main-header" [ngClass]="{ 'scrolled': isScrolled }" >
+    <div class="container">
+          <div class="header-container">
+
+    <!-- LEFT: LOGO -->
+    <div class="logo">
+      <img [routerLink]="''" src="../../../assets/logo/mavin-logo.png" alt="logo" draggable="false" style="cursor: pointer;">
+      <!-- <span>Mavin Pharmaceuticals</span> -->
+    </div>
+
+    <!-- CENTER: NAV MENU -->
+    <nav class="nav-links">
+<a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+<a routerLink="/products" routerLinkActive="active">Products</a>
+<a routerLink="/about-us" routerLinkActive="active">About Us</a>
+<a routerLink="/contact-us" routerLinkActive="active">Contact</a>
+
+            <span class="cart-icon">🛒</span>
+
+      <div class="profile">
+        <img src="../../../assets/icons/lucide-CircleUser-Outlined.svg" alt="profile">
+        <span class="online-dot"></span>
+      </div>
+    </nav>
+
+  </div>
+    </div>
+</header>

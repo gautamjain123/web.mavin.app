@@ -1,0 +1,107 @@
+.hero-section {
+    width: 100%;
+    position: relative;
+    padding: 180px 0 100px 0px;
+    background-image: url('../../../../assets/images/pexels-chokniti-khongchum-1197604-3938022.jpg');
+    background-position: center right;
+    background-size: 70%;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    border-bottom-left-radius: 52px;
+}
+
+/* LEFT→RIGHT White Transparent Blur Overlay */
+.hero-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 55%;        /* expand or reduce as needed */
+    height: 100%;
+    background: linear-gradient(
+        to right,
+        rgb(214, 236, 255) 0%,     /* solid white on left */
+        rgb(255, 255, 255) 70%,  /* semi transparent */
+        rgba(255, 255, 255, 0) 100%    /* transparent on right */
+    );
+    z-index: 1;
+}
+
+/* content should be above overlay */
+.hero-section > * {
+    position: relative;
+    z-index: 2;
+}
+
+
+.hero-container {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding: 0 0 0 40px;
+}
+
+.hero-subtitle {
+    color: #1d4ed8;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.hero-title {
+    font-size: 52px;
+    line-height: 1.2;
+    font-weight: 700;
+    color: #0a0a0a;
+    margin-bottom: 20px;
+}
+
+.hero-title span {
+    color: #1d4ed8;
+}
+
+.hero-desc {
+    font-size: 16px;
+    color: #555;
+    max-width: 450px;
+    margin-bottom: 30px;
+}
+
+.hero-btn {
+    background-color: #1d4ed8;
+    color: #fff;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.hero-btn:hover {
+    background-color: #1742b0;
+}
+
+.hero-right {
+    flex: 1;
+    text-align: right;
+}
+
+.hero-right img {
+    max-width: 100%;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .hero-container {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+
+    .hero-right img {
+        width: 100%;
+    }
+}
