@@ -120,3 +120,138 @@
   border-radius: 12px;
   box-shadow: 0 0 10px rgba(0,0,0,0.05);
 }
+
+
+/* ================================
+   RESPONSIVE DESIGN UNDER 800PX
+   ================================ */
+@media (max-width: 800px) {
+
+  .main-details-div {
+    padding: 80px 0px;  /* reduce empty top space */
+  }
+
+  .details-container {
+    flex-direction: column;   /* stack left + right */
+    gap: 25px;
+  }
+
+  /* LEFT SECTION */
+  .left-box {
+    width: 100%;
+  }
+
+  .main-image {
+    height: 350px; /* slightly smaller for mobile */
+    border-radius: 14px;
+  }
+
+  .main-image img {
+    object-fit: contain;
+  }
+
+  /* MOBILE THUMBNAIL SCROLLER */
+  .thumb-row {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding-bottom: 6px;
+    scrollbar-width: none; /* hide scrollbar */
+  }
+
+  .thumb-row::-webkit-scrollbar {
+    display: none;
+  }
+
+  .thumb-row img {
+    width: 65px;
+    height: 65px;
+    flex-shrink: 0;
+  }
+
+  /* RIGHT SECTION */
+  .right-box {
+    width: 100%;
+  }
+
+  .right-box h2 {
+    font-size: 22px;
+    font-weight: 700;
+  }
+
+  .rating-row {
+    font-size: 14px;
+  }
+
+  .price {
+    font-size: 24px;
+  }
+
+  /* CART BUTTON */
+  .cart-btn {
+    padding: 14px;
+    font-size: 18px;
+    border-radius: 12px;
+  }
+
+  /* TABS - FULL WIDTH & SCROLLABLE */
+  .tabs {
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 5px;
+    scrollbar-width: none;
+  }
+
+  .tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .tab {
+    padding: 10px 18px;
+    font-size: 14px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .tab-content {
+    padding: 15px;
+    font-size: 15px;
+  }
+}
+
+
+/* ================================
+   EXTRA POLISH FOR SMALL MOBILES
+   Under 480px
+   ================================ */
+@media (max-width: 480px) {
+
+  .main-details-div {
+    padding: 70px 0px;
+  }
+
+  .main-image {
+    height: 300px;
+  }
+
+  .right-box h2 {
+    font-size: 20px;
+  }
+
+  .price {
+    font-size: 22px;
+  }
+
+  .cart-btn {
+    font-size: 16px;
+  }
+
+  .tab {
+    padding: 8px 16px;
+    font-size: 13px;
+  }
+
+  .tab-content {
+    font-size: 14px;
+  }
+}

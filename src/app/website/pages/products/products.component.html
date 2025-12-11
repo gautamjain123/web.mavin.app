@@ -1,88 +1,138 @@
-
 <div class="main-products-div">
-    <div class="container">
-        <div class="catalog-wrapper">
-  <aside class="filters">
-    <h3>Filters</h3>
+  <div class="container">
+    <div class="catalog-wrapper">
 
-    <!-- Category -->
-    <div class="filter-group">
-      <div class="filter-header" (click)="toggleCategory()">
-        <span>Category</span>
-        <span class="arrow">{{ categoryOpen ? "▲" : "▼" }}</span>
+      <!-- DESKTOP FILTERS (Hidden below 1150px) -->
+      <aside class="filters">
+        <h3>Filters</h3>
+
+        <!-- Category -->
+        <div class="filter-group">
+          <div class="filter-header" (click)="toggleCategory()">
+            <span>Category</span>
+            <span class="arrow">{{ categoryOpen ? "▲" : "▼" }}</span>
+          </div>
+
+          <div class="filter-body" *ngIf="categoryOpen">
+            <div *ngFor="let item of categories">
+              <label>
+                <input type="checkbox" [(ngModel)]="item.selected" />
+                {{ item.name }}
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Skin Type -->
+        <div class="filter-group">
+          <div class="filter-header" (click)="toggleSkin()">
+            <span>Skin Type</span>
+            <span class="arrow">{{ skinOpen ? "▲" : "▼" }}</span>
+          </div>
+
+          <div class="filter-body" *ngIf="skinOpen">
+            <div *ngFor="let item of skinTypes">
+              <label>
+                <input type="checkbox" [(ngModel)]="item.selected" />
+                {{ item.name }}
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Price Range -->
+        <div class="filter-group">
+          <div class="filter-header" (click)="togglePrice()">
+            <span>Price Range</span>
+            <span class="arrow">{{ priceOpen ? "▲" : "▼" }}</span>
+          </div>
+
+          <div class="filter-body" *ngIf="priceOpen">
+            <input type="range" min="10" max="100" step="1" [(ngModel)]="priceRange" />
+            <p>₹{{ priceRange }}</p>
+          </div>
+        </div>
+      </aside>
+
+      <!-- RIGHT SECTION -->
+      <section class="products">
+        <h2>Our Product Catalog</h2>
+        <p class="subtitle">
+          Explore our curated selection of premium skincare products designed to
+          nurture your skin’s natural radiance.
+        </p>
+
+        <div class="product-grid">
+          <div class="card" *ngFor="let product of products">
+            <div class="img-div">
+              <img [src]="product.image" alt="" />
+            </div>
+            <h4 class="product-title">{{ product.name }}</h4>
+            <p class="product-desc">{{ product.description }}</p>
+
+            <div class="options-div d-flex align-items-center justify-content-between w-100 gap-4">
+              <div class="price">₹{{ product.price }}</div>
+              <button class="view-btn">Buy</button>
+              <i class="fa-solid fa-circle-info info-fa m-0"
+                 style="cursor: pointer;"
+                 (click)="goToDetails(product.id)">
+              </i>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- FLOATING FILTER BUTTON (Below 1150px) -->
+    <button class="filter-fab" (click)="openFilterSheet()">
+      <i class="fa-solid fa-sliders"></i> Filters
+    </button>
+
+    <!-- MOBILE BOTTOM SHEET FILTER PANEL -->
+    <div class="filter-sheet" [class.open]="filterSheetOpen">
+
+      <div class="sheet-header">
+        <span class="back" (click)="closeFilterSheet()">← Back</span>
+        <h3>Filters</h3>
+        <span class="clear" (click)="clearAllFilters()">Clear all</span>
       </div>
 
-      <div class="filter-body" *ngIf="categoryOpen">
-        <div *ngFor="let item of categories">
-          <label>
-            <input type="checkbox" [(ngModel)]="item.selected" />
-            {{ item.name }}
+      <div class="sheet-body">
+
+        <!-- CATEGORY -->
+        <div class="sheet-accordion" (click)="categoryOpen = !categoryOpen">
+          <span>Category</span>
+          <span>{{ categoryOpen ? '−' : '+' }}</span>
+        </div>
+        <div class="sheet-content" *ngIf="categoryOpen">
+          <label *ngFor="let c of categories">
+            <input type="checkbox" [(ngModel)]="c.selected"> {{ c.name }}
           </label>
         </div>
-      </div>
-    </div>
 
-    <!-- Skin Type -->
-    <div class="filter-group">
-      <div class="filter-header" (click)="toggleSkin()">
-        <span>Skin Type</span>
-        <span class="arrow">{{ skinOpen ? "▲" : "▼" }}</span>
-      </div>
-
-      <div class="filter-body" *ngIf="skinOpen">
-        <div *ngFor="let item of skinTypes">
-          <label>
-            <input type="checkbox" [(ngModel)]="item.selected" />
-            {{ item.name }}
+        <!-- SKIN TYPE -->
+        <div class="sheet-accordion" (click)="skinOpen = !skinOpen">
+          <span>Skin Type</span>
+          <span>{{ skinOpen ? '−' : '+' }}</span>
+        </div>
+        <div class="sheet-content" *ngIf="skinOpen">
+          <label *ngFor="let s of skinTypes">
+            <input type="checkbox" [(ngModel)]="s.selected"> {{ s.name }}
           </label>
         </div>
-      </div>
-    </div>
 
-    <!-- Price Range -->
-    <div class="filter-group">
-      <div class="filter-header" (click)="togglePrice()">
-        <span>Price Range</span>
-        <span class="arrow">{{ priceOpen ? "▲" : "▼" }}</span>
-      </div>
-
-      <div class="filter-body" *ngIf="priceOpen">
-        <input
-          type="range"
-          min="10"
-          max="100"
-          step="1"
-          [(ngModel)]="priceRange"
-        />
-        <p>${{ priceRange }}.00</p>
-      </div>
-    </div>
-  </aside>
-
-  <!-- Right Content -->
-  <section class="products">
-    <h2>Our Product Catalog</h2>
-    <p class="subtitle">
-      Explore our curated selection of premium skincare products designed to
-      nurture your skin’s natural radiance.
-    </p>
-
-    <div class="product-grid">
-      <div class="card" *ngFor="let product of products">
-        <div class="img-div">
-                    <img [src]="product.image" alt="" />
+        <!-- PRICE -->
+        <div class="sheet-accordion" (click)="priceOpen = !priceOpen">
+          <span>Price Range</span>
+          <span>{{ priceOpen ? '−' : '+' }}</span>
         </div>
-        <h4 class="product-title">{{ product.name }}</h4>
-        <p class="product-desc">{{ product.description }}</p>
-
-        <div class="options-div d-flex align-items-center justify-content-between w-100 gap-4">
-            <div class="price">${{ product.price }}</div>
-            <button class="view-btn">Buy</button>
-            <i class="fa-solid fa-circle-info info-fa m-0" style="cursor: pointer;" (click)="goToDetails(product.id)"></i>
+        <div class="sheet-content" *ngIf="priceOpen">
+          <input type="range" min="10" max="100" [(ngModel)]="priceRange">
+          <p>₹{{ priceRange }}</p>
         </div>
+
       </div>
     </div>
-  </section>
-</div>
-    </div>
+
+  </div>
 </div>

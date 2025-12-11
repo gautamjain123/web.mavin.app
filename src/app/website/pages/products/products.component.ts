@@ -6,17 +6,22 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-products',
   standalone: true,
-  imports: [CommonModule,FormsModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './products.component.html',
   styleUrl: './products.component.scss'
 })
 export class ProductsComponent {
-    categoryOpen = true;
+
+  categoryOpen = true;
   skinOpen = true;
   priceOpen = true;
 
+  filterSheetOpen = false;
+
   priceRange = 50;
+
   constructor(private router: Router) {}
+
   categories = [
     { name: 'Cleansers', selected: false },
     { name: 'Serums', selected: false },
@@ -34,58 +39,29 @@ export class ProductsComponent {
   ];
 
   products = [
-    {
-      id : 1 ,
-      name: 'Radiant Revitalizing Cleanser',
-      description: 'A gentle yet effective cleanser that removes impurities.',
-      price: 29.99,
-      image: '../../../../assets/images/mavin.png'
-    },
-    {
-      id:2,
-      name: 'Hydra Boost Serum',
-      description: 'Deep hydration infused with hyaluronic acid.',
-      price: 45.50,
-      image: '../../../../assets/images/cat-serum.png'
-    },
-    {
-      id:3,
-      name: 'Detox Glow Mask',
-      description: 'A purifying clay mask that refines pores.',
-      price: 34.00,
-      image: '../../../../assets/images/cat-mask.png'
-    },
-    {
-      id:4,
-      name: 'Renewal Daily Moisturizer',
-      description: 'Keeps your skin nourished all day.',
-      price: 38.75,
-      image: '../../../../assets/images/cat-mask.png'
-    },
-    {
-      id:5,
-      name: 'Sun Defense SPF 50',
-      description: 'Broad-spectrum UVA/UVB protection.',
-      price: 22.00,
-      image: '../../../../assets/images/cat-moist.png'
-    },
-    {
-      id:6,
-      name: 'Overnight Repair Cream',
-      description: 'Rejuvenates your skin while you sleep.',
-      price: 55.99,
-      image: '../../../../assets/images/cat-mask.png'
-    }
+    { id: 1, name: 'Maviderm', description: 'A gentle yet effective cleanser that removes impurities.', price: 29.99, image: '../../../../assets/images/mavin.png' },
+    { id: 2, name: 'Hydra Boost Serum', description: 'Deep hydration infused with hyaluronic acid.', price: 45.50, image: '../../../../assets/images/cat-serum.png' },
+    { id: 3, name: 'Detox Glow Mask', description: 'A purifying clay mask that refines pores.', price: 34.00, image: '../../../../assets/images/cat-mask.png' },
+    { id: 4, name: 'Renewal Daily Moisturizer', description: 'Keeps your skin nourished all day.', price: 38.75, image: '../../../../assets/images/cat-mask.png' },
+    { id: 5, name: 'Sun Defense SPF 50', description: 'Broad-spectrum UVA/UVB protection.', price: 22.00, image: '../../../../assets/images/cat-moist.png' },
+    { id: 6, name: 'Overnight Repair Cream', description: 'Rejuvenates your skin while you sleep.', price: 55.99, image: '../../../../assets/images/cat-mask.png' }
   ];
 
   toggleCategory() { this.categoryOpen = !this.categoryOpen; }
   toggleSkin() { this.skinOpen = !this.skinOpen; }
   togglePrice() { this.priceOpen = !this.priceOpen; }
 
+  openFilterSheet() { this.filterSheetOpen = true; }
+  closeFilterSheet() { this.filterSheetOpen = false; }
 
+  clearAllFilters() {
+    this.categories.forEach(c => c.selected = false);
+    this.skinTypes.forEach(s => s.selected = false);
+    this.priceRange = 10;
+  }
 
-goToDetails(id: number) {
-  this.router.navigate(['/product-details', id]);
-}
+  goToDetails(id: number) {
+    this.router.navigate(['/product-details', id]);
+  }
 
 }

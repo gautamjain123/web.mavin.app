@@ -17,7 +17,7 @@ export class ProductDetailsComponent {
   products = [
     {
       id: 1,
-      name: 'Revitalizing Hyaluronic Serum',
+      name: 'Maviderm',
       price: 49.00,
       description:
         'Experience ultimate hydration with our Revitalizing Hyaluronic Serum...',

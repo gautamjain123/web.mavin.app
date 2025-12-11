@@ -1,14 +1,15 @@
-.main-products-div{
-    background: #f7f9fc;
-    height: 100%;
+.main-products-div {
+  background: #f7f9fc;
+  height: 100%;
 }
+
 .catalog-wrapper {
   display: flex;
   padding: 120px 0px 70px 0px;
   gap: 40px;
 }
 
-/* SIDEBAR */
+/* ---------------- DESKTOP FILTER SIDEBAR ---------------- */
 .filters {
   width: 240px;
   background: #fff;
@@ -17,9 +18,7 @@
   box-shadow: 0 0 20px rgba(0,0,0,0.05);
 }
 
-.filter-group {
-  margin-bottom: 20px;
-}
+.filter-group { margin-bottom: 20px; }
 
 .filter-header {
   display: flex;
@@ -36,10 +35,8 @@
   margin: 6px 0;
 }
 
-/* RIGHT SECTION */
-.products {
-  flex: 1;
-}
+/* ---------------- PRODUCTS ---------------- */
+.products { flex: 1; }
 
 .products h2 {
   font-size: 28px;
@@ -61,21 +58,18 @@
 .card {
   background: #fff;
   display: flex;
-  align-items: start;
-  justify-content: space-between;
+  flex-direction: column;
   padding: 16px;
   border-radius: 12px;
   box-shadow: 0 0 10px rgba(0,0,0,0.06);
   transition: 0.2s;
 }
 
-.card:hover {
-  transform: translateY(-5px);
-}
+.card:hover { transform: translateY(-5px); }
 
 .img-div {
   width: 100%;
-  height: 290px; /* adjust based on design */
+  height: 290px;
   overflow: hidden;
   border-radius: 12px;
 }
@@ -83,11 +77,8 @@
 .img-div img {
   width: 100%;
   height: 100%;
-  object-fit: cover;  /* fills the div without distortion */
-  object-position: center; /* centers the subject */
-  display: block;
+  object-fit: cover;
 }
-
 
 .product-title {
   margin: 10px 0 4px;
@@ -100,10 +91,8 @@
   height: 40px;
 }
 
-.price {
-  font-weight: 700;
-  color: #32a852;
-}
+.price { font-weight: 700; color: #32a852; }
+
 .view-btn {
   width: 100%;
   padding: 10px 0;
@@ -114,32 +103,119 @@
   font-size: 15px;
   font-weight: 600;
   cursor: pointer;
-  transition: 0.25s ease;
+  transition: 0.25s;
 }
 
 .view-btn:hover {
   background: #1e55d5;
   transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
 }
 
-/* Responsive */
-@media (max-width: 992px) {
+/* ---------------- FLOATING FILTER BUTTON ---------------- */
+.filter-fab {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  display: none;
+  background: #1d6dd8;
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 30px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  gap: 8px;
+  font-size: 16px;
+  z-index: 2000;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+}
+
+/* ---------------- BOTTOM SHEET FILTER PANEL ---------------- */
+.filter-sheet {
+  position: fixed;
+  bottom: -100%;
+  left: 0;
+  width: 100%;
+  height: 85%;
+  background: #fff;
+  border-radius: 18px 18px 0 0;
+  transition: 0.35s ease;
+  box-shadow: 0 -4px 18px rgba(0,0,0,0.15);
+  z-index: 3000;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.filter-sheet.open {
+  bottom: 0;
+}
+
+.sheet-header {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.sheet-header .back {
+  cursor: pointer;
+  color: #1d6dd8;
+}
+
+.sheet-header .clear {
+  cursor: pointer;
+  color: #ff5555;
+}
+
+.sheet-accordion {
+  display: flex;
+  justify-content: space-between;
+  padding: 14px 0;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.sheet-content {
+  padding: 10px 0 20px 0;
+}
+
+.sheet-content label {
+  display: flex;
+  gap: 10px;
+  padding: 6px 0;
+}
+
+/* ---------------- RESPONSIVE ---------------- */
+@media (max-width: 1150px) {
+
+  .filters { display: none; }
+
+  .filter-fab {
+    display: flex;
+    align-items: center;
+  }
+
   .product-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
   .catalog-wrapper {
+    padding-top: 100px;
     flex-direction: column;
-  }
-
-  .filters {
-    width: 100%;
   }
 }
 
 @media (max-width: 600px) {
   .product-grid {
     grid-template-columns: 1fr;
+  }
+
+  .filter-fab {
+    bottom: 65px;
+  }
+
+  .filter-sheet {
+    height: 90%;
   }
 }
