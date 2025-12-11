@@ -38,4 +38,5 @@ export class ProductDetailsComponent {
     this.product = this.products.find((p) => p.id === id);
     this.selectedImage = this.product.images[0];
   }
+  
 }

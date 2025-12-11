@@ -12,10 +12,7 @@
 /* ---------------- DESKTOP FILTER SIDEBAR ---------------- */
 .filters {
   width: 240px;
-  background: #fff;
-  padding: 20px;
   border-radius: 12px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.05);
 }
 
 .filter-group { margin-bottom: 20px; }
@@ -26,6 +23,25 @@
   font-weight: 600;
   cursor: pointer;
   padding: 6px 0;
+}
+.filters .accordion-button {
+  font-weight: 600;
+  background: #ffffff;
+  border-radius: 8px !important;
+  border: none;
+  box-shadow: none;
+}
+
+.filters .accordion-item {
+  border: none;
+  margin-bottom: 12px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+
+.filters .accordion-body {
+  background: #ffffff;
 }
 
 .filter-body label {
@@ -184,6 +200,14 @@
   display: flex;
   gap: 10px;
   padding: 6px 0;
+}
+
+@media (min-width: 1150px) {
+  .filters {
+    position: sticky;
+    top: 120px; /* adjust based on your header height */
+    height: fit-content;
+  }
 }
 
 /* ---------------- RESPONSIVE ---------------- */
