@@ -24,7 +24,7 @@ export class ProductDetailsComponent {
       ingredients: 'Aqua, Hyaluronic Acid, Glycerin, Aloe Vera...',
       usage: 'Apply 2–3 drops daily after cleansing...',
       images: [
-        '../../../../assets/images/cat-serum.png',
+        '../../../../assets/images/mavin.png',
         '../../../../assets/images/cat-cleanser.png',
         '../../../../assets/images/clay-mask.png',
       ]

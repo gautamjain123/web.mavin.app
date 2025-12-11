@@ -1,0 +1,50 @@
+<div class="user-login-wrapper">
+
+  <!-- LEFT ABSTRACT PANEL -->
+  <div class="left-panel">
+    <div class="abstract-shape shape1"></div>
+    <div class="abstract-shape shape2"></div>
+
+    <div class="welcome-text">
+      <h1>Welcome Back</h1>
+      <p>Sign in to explore your dashboard and personalised experience.</p>
+    </div>
+  </div>
+
+  <!-- RIGHT LOGIN FORM -->
+  <div class="right-panel">
+    <div class="login-card glass">
+
+      <h2>User Login</h2>
+      <p class="subtitle">Choose a method to sign in</p>
+
+      <!-- GOOGLE LOGIN -->
+      <button class="google-btn" (click)="loginWithGoogle()">
+        <img src="../../../assets/logo/google.webp" alt="google">
+        Continue with Google
+      </button>
+
+      <div class="divider"><span>or</span></div>
+
+      <form (ngSubmit)="login()" #form="ngForm">
+
+        <div class="input-group">
+          <input type="email" placeholder="Email Address" name="email" [(ngModel)]="user.email" required>
+        </div>
+
+        <div class="input-group">
+          <input type="password" placeholder="Password" name="password" [(ngModel)]="user.password" required>
+        </div>
+
+        <button class="login-btn" [disabled]="form.invalid">Login</button>
+
+        <p class="signup">
+          New here? <span (click)="goToSignup()">Create an account</span>
+        </p>
+
+      </form>
+
+    </div>
+  </div>
+
+</div>

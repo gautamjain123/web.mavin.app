@@ -15,7 +15,15 @@
   width: 100%;
   height: 400px; /* adjust based on design */
   overflow: hidden;
+  background-color: #f2f2f2;
   border-radius: 12px;
+}
+.main-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;  /* fills the div without distortion */
+  object-position: center; /* centers the subject */
+  display: block;
 }
 .back-bar {
   display: flex;
@@ -37,13 +45,6 @@
   transform: translateX(-4px);
 }
 
-.main-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;  /* fills the div without distortion */
-  object-position: center; /* centers the subject */
-  display: block;
-}
 
 
 .thumb-row {

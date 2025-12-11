@@ -1,0 +1,114 @@
+/* ───────── Overlay ───────── */
+.cart-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s;
+  z-index: 92;
+
+  &.open {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+/* ───────── Swiggy Cart Drawer ───────── */
+.cart-offcanvas.swiggy {
+  position: fixed;
+  right: -400px;
+  top: 0;
+  width: 360px;
+  height: 100vh;
+  background: #fff;
+  z-index: 100;
+  transition: 0.35s cubic-bezier(.4,0,.2,1);
+  box-shadow: -3px 0 12px rgba(0,0,0,0.15);
+  display: flex;
+  flex-direction: column;
+  border-radius: 16px 0 0 16px;
+
+  &.open {
+    right: 0;
+  }
+}
+
+/* Header */
+.cart-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 18px;
+  font-size: 18px;
+  font-weight: 600;
+  border-bottom: 1px solid #eee;
+
+  .close-btn {
+    background: none;
+    border: none;
+    font-size: 26px;
+    cursor: pointer;
+  }
+}
+
+/* Items */
+.cart-body {
+  padding: 20px;
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 18px;
+
+  img {
+    width: 70px;
+    height: 70px;
+    border-radius: 12px;
+  }
+
+  .info {
+    flex-grow: 1;
+    margin-left: 12px;
+
+    .name { font-weight: 600; }
+    .price { color: #555; margin-top: 4px; }
+  }
+
+  .qty-box {
+    background:#1d4ed8;
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+}
+
+/* Footer */
+.cart-footer {
+  padding: 18px;
+  border-top: 1px solid #eee;
+  background: #fff;
+  position: sticky;
+  bottom: 0;
+}
+
+.price-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 17px;
+  margin-bottom: 12px;
+}
+
+.checkout-btn {
+  width: 100%;
+  padding: 14px;
+  background: #1d4ed8;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}

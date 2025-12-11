@@ -39,7 +39,7 @@ export class ProductsComponent {
       name: 'Radiant Revitalizing Cleanser',
       description: 'A gentle yet effective cleanser that removes impurities.',
       price: 29.99,
-      image: '../../../../assets/images/cat-mask.png'
+      image: '../../../../assets/images/mavin.png'
     },
     {
       id:2,

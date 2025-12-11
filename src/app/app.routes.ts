@@ -29,9 +29,12 @@ export const routes: Routes = [
 
         ],
     },
-    // {
-    //     path: 'login',
-    //     canActivate: [noAuthGuard],
-    //     component: IasLoginComponent,
-    // },
+    {
+        path: 'admin-login',
+        loadComponent: () => import('./authmodule/admin-login/admin-login.component').then(m => m.AdminLoginComponent)
+    },
+    {
+        path: 'login',
+        loadComponent: () => import('./authmodule/user-login/user-login.component').then(m => m.UserLoginComponent)
+    },
 ];

@@ -1,0 +1,222 @@
+.user-login-wrapper {
+  height: 100vh;
+  display: flex;
+  overflow: hidden;
+}
+
+/* ---------------- LEFT PANEL (PURE CSS ABSTRACT + GRADIENT) ---------------- */
+.left-panel {
+  width: 50%;
+  position: relative;
+  color: white;
+  padding: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  background: linear-gradient(145deg, #7f5eff, #4ab1ff);
+  overflow: hidden;
+}
+
+/* ABSTRACT SHAPES */
+.abstract-shape {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.6;
+}
+
+.shape1 {
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, #ff66c4, #7f5eff);
+  top: -60px;
+  left: -50px;
+}
+
+.shape2 {
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle, #4ab1ff, #6f7cff);
+  bottom: -40px;
+  right: -40px;
+}
+
+/* Welcome Text */
+.welcome-text {
+  position: relative;
+  z-index: 2;
+}
+
+.welcome-text h1 {
+  font-size: 44px;
+  font-weight: 800;
+}
+
+.welcome-text p {
+  font-size: 17px;
+  margin-top: 10px;
+  opacity: 0.9;
+}
+
+/* ---------------- RIGHT PANEL ---------------- */
+.right-panel {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  background: #f5f7fc;
+}
+
+/* GLASS LOGIN CARD */
+.login-card {
+  width: 85%;
+  max-width: 360px;
+  padding: 40px 34px;
+  border-radius: 18px;
+  text-align: center;
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(255,255,255,0.45);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.login-card h2 {
+  font-size: 26px;
+  font-weight: 700;
+}
+
+/* SUBTITLE */
+.subtitle {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 22px;
+}
+
+/* GOOGLE BUTTON */
+.google-btn {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  background: white;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+  transition: 0.3s ease;
+
+  img {
+    width: 20px;
+  }
+
+  &:hover {
+    background: #f3f4f6;
+  }
+}
+
+/* DIVIDER */
+.divider {
+  margin: 20px 0;
+  text-align: center;
+  position: relative;
+
+  span {
+    background: #fff;
+    padding: 0 10px;
+    z-index: 2;
+    position: relative;
+    font-size: 14px;
+    color: #666;
+  }
+
+  &::before {
+    content: "";
+    width: 100%;
+    height: 1px;
+    background: #ccc;
+    position: absolute;
+    top: 50%;
+    left: 0;
+  }
+}
+
+/* INPUTS */
+.input-group input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  font-size: 15px;
+  margin-bottom: 16px;
+  transition: 0.25s;
+
+  &:focus {
+    border-color: #7f5eff;
+    box-shadow: 0 0 6px rgba(127, 94, 255, 0.35);
+    outline: none;
+  }
+}
+
+/* LOGIN BUTTON */
+.login-btn {
+  width: 100%;
+  padding: 12px;
+  background: #7f5eff;
+  color: white;
+  font-size: 16px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: 0.35s;
+
+  &:hover {
+    background: #6b4bea;
+  }
+}
+
+/* SIGNUP LINK */
+.signup {
+  margin-top: 16px;
+  font-size: 14px;
+
+  span {
+    color: #7f5eff;
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+/* ---------------- RESPONSIVE ---------------- */
+@media (max-width: 900px) {
+  .user-login-wrapper {
+    flex-direction: column;
+  }
+
+  .left-panel,
+  .right-panel {
+    width: 100%;
+  }
+
+  .left-panel {
+    padding: 40px;
+    height: 40vh;
+  }
+
+  .hero-illustration {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-card {
+    padding: 30px 22px;
+  }
+}

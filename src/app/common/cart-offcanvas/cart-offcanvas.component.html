@@ -1,0 +1,30 @@
+<!-- Overlay -->
+<div class="cart-overlay" [class.open]="isOpen" (click)="close()"></div>
+
+<!-- Offcanvas -->
+<div class="cart-offcanvas swiggy" [class.open]="isOpen">
+
+  <div class="cart-header">
+    <h3>Your Order</h3>
+    <button class="close-btn" (click)="close()">&times;</button>
+  </div>
+
+  <div class="cart-body">
+    <div class="cart-item" *ngFor="let item of [1,2,3]">
+      <img src="../../../assets/images/cat-mask.png" alt="product-image" loading="lazy" draggable="false"/>
+      <div class="info">
+        <p class="name">Item Name</p>
+        <p class="price">₹199</p>
+      </div>
+      <div class="qty-box">+</div>
+    </div>
+  </div>
+
+  <div class="cart-footer">
+    <div class="price-row">
+      <span>Total</span>
+      <strong>₹597</strong>
+    </div>
+    <button class="checkout-btn">Proceed to Checkout</button>
+  </div>
+</div>

@@ -1,0 +1,39 @@
+<div class="admin-login-wrapper">
+
+  <!-- LEFT SECTION -->
+  <div class="left-panel">
+    <div class="welcome-text">
+      <h1>Welcome Admin</h1>
+      <p>Manage users, products, roles, analytics & dashboard settings all in one place.</p>
+    </div>
+  </div>
+
+  <!-- RIGHT LOGIN CARD -->
+  <div class="login-panel">
+    <div class="login-card glass">
+
+      <h2>Admin Login</h2>
+      <p class="subtitle">Enter your secure credentials</p>
+
+      <form (ngSubmit)="login()" #loginForm="ngForm">
+
+        <div class="input-group">
+          <span class="icon">📧</span>
+          <input type="email" placeholder="Email Address" name="email" [(ngModel)]="admin.email" required>
+        </div>
+
+        <div class="input-group">
+          <span class="icon">🔒</span>
+          <input type="password" placeholder="Password" name="password" [(ngModel)]="admin.password" required>
+        </div>
+
+        <button class="login-btn" [disabled]="loginForm.invalid">Login</button>
+
+        <p class="forgot">Forgot password?</p>
+
+      </form>
+
+    </div>
+  </div>
+
+</div>
