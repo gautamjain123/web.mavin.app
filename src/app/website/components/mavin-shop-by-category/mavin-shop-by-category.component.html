@@ -1,4 +1,4 @@
-<section class="mavin-category-section"   >
+<section class="mavin-category-section"   id="shop-category">
   <h2 class="section-title">Shop by Category</h2>
 
   <div class="category-slider">
@@ -34,63 +34,13 @@
 
     <div class="products-grid">
 
-      <div class="product-card">
-        <img src="../../../../assets/images/mavin.png" alt="">
+      <div class="product-card" *ngFor="let product of products">
+              <img [src]="product.image" alt="" />
+              <h3>{{ product.name }}</h3>
+              <p>{{ product.description }}</p>
         <div class="p-body">
-          <h3>Maviderm</h3>
-          <p>Hydrating moisturizer that soothes and nourishes skin instantly.</p>
-          <span class="price">&#8377; 500</span>
-          <button>View Details</button>
-        </div>
-      </div>
-
-      <div class="product-card">
-        <img src="../../../../assets/images/clay-mask.png" alt="">
-        <div class="p-body">
-          <h3>Herbal Glow Serum</h3>
-          <p>Botanical extracts brighten and enhance skin tone naturally.</p>
-          <span class="price">&#8377; 48.00</span>
-          <button>View Details</button>
-        </div>
-      </div>
-
-      <div class="product-card">
-        <img src="../../../../assets/images/serum.png" alt="">
-        <div class="p-body">
-          <h3>Night Repair Cream</h3>
-          <p>Deep overnight repair formula restores skin barrier and radiance.</p>
-          <span class="price">&#8377; 55.00</span>
-          <button>View Details</button>
-        </div>
-      </div>
-
-      <div class="product-card">
-        <img src="../../../../assets/images/cat-mask.png" alt="">
-        <div class="p-body">
-          <h3>Purify Clay Mask</h3>
-          <p>Detoxifying clay & charcoal formula reduces pores and clears skin.</p>
-          <span class="price">$28.00</span>
-          <button>View Details</button>
-        </div>
-      </div>
-
-      <div class="product-card">
-        <img src="../../../../assets/images/cat-mask.png" alt="">
-        <div class="p-body">
-          <h3>Purify Clay Mask</h3>
-          <p>Detoxifying clay & charcoal formula reduces pores and clears skin.</p>
-          <span class="price">$28.00</span>
-          <button>View Details</button>
-        </div>
-      </div>
-
-      <div class="product-card">
-        <img src="../../../../assets/images/clay-mask.png" alt="">
-        <div class="p-body">
-          <h3>Herbal Glow Serum</h3>
-          <p>Botanical extracts brighten and enhance skin tone naturally.</p>
-          <span class="price">$48.00</span>
-          <button>View Details</button>
+          <span class="price">₹{{ product.price }}</span>
+          <button (click)="goToDetails(product.id)">View Details</button>
         </div>
       </div>
 

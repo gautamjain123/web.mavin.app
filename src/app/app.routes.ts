@@ -17,6 +17,11 @@ export const routes: Routes = [
                 loadComponent: () => import('./website/pages/contact-us-page/contact-us-page.component').then(m => m.ContactUsPageComponent)
             },
             {
+                path: 'about-us',
+                // component:IasHomepageComponent,
+                loadComponent: () => import('./website/pages/about-us/about-us.component').then(m => m.AboutUsComponent)
+            },
+            {
                 path: 'products',
                 // component:IasHomepageComponent,
                 loadComponent: () => import('./website/pages/products/products.component').then(m => m.ProductsComponent)
