@@ -1,94 +1,71 @@
 <div class="main-details-div">
-    <div class="container">
-        <div class="back-bar" [routerLink]="'/products'">
-  <span class="back-arrow">←</span>
-  <span class="back-text">View all</span>
-</div>
-
-        <div class="details-container">
-        
-          <!-- LEFT IMAGE SECTION -->
-          <div class="left-box">
-            <div class="main-image">
-                <img  [src]="selectedImage" alt="" />
-            </div>
-        
-            <!-- Thumbnail Gallery -->
-            <div class="thumb-row">
-              <img 
-                *ngFor="let img of product.images"
-                [src]="img"
-                [class.active]="img === selectedImage"
-                (click)="selectedImage = img"
-              />
-            </div>
-          </div>
-        
-          <!-- RIGHT INFO SECTION -->
-          <div class="right-box">
-            <h2>{{ product.name }}</h2>
-        
-            <!-- Rating -->
-            <div class="rating-row">
-              ⭐⭐⭐⭐⭐ <span class="reviews">(128 Reviews)</span>
-            </div>
-        
-            <!-- Price -->
-            <div class="price">${{ product.price }}</div>
-        
-            <!-- Add to cart button -->
-            <button class="cart-btn">
-              <i class="fa-solid fa-cart-shopping"></i> Add to Cart
-            </button>
-        
-            <!-- Tabs -->
-            <div class="tabs">
-              <button 
-                class="tab" 
-                [class.active]="activeTab === 'desc'"
-                (click)="activeTab = 'desc'">
-                Description
-              </button>
-        
-              <button 
-                class="tab" 
-                [class.active]="activeTab === 'ingredients'"
-                (click)="activeTab = 'ingredients'">
-                Ingredients
-              </button>
-        
-              <button 
-                class="tab" 
-                [class.active]="activeTab === 'usage'"
-                (click)="activeTab = 'usage'">
-                Usage
-              </button>
-        
-              <button 
-                class="tab"
-                [class.active]="activeTab === 'reviews'"
-                (click)="activeTab = 'reviews'">
-                Reviews
-              </button>
-            </div>
-        
-            <!-- TAB CONTENT -->
-            <div class="tab-content">
-              <h3 *ngIf="activeTab === 'desc'">Product Description</h3>
-              <p *ngIf="activeTab === 'desc'">{{ product.description }}</p>
-        
-              <h3 *ngIf="activeTab === 'ingredients'">Ingredients</h3>
-              <p *ngIf="activeTab === 'ingredients'">{{ product.ingredients }}</p>
-        
-              <h3 *ngIf="activeTab === 'usage'">Usage Instructions</h3>
-              <p *ngIf="activeTab === 'usage'">{{ product.usage }}</p>
-        
-              <h3 *ngIf="activeTab === 'reviews'">Customer Reviews</h3>
-              <p *ngIf="activeTab === 'reviews'">Coming soon...</p>
-            </div>
-        
-          </div>
-        
-        </div>
+  <div class="container">
+    <div class="back-bar" [routerLink]="'/products'">
+      <span class="back-arrow">←</span>
+      <span class="back-text">View all</span>
     </div>
+
+    <div class="details-container">
+
+      <!-- LEFT IMAGE SECTION -->
+      <div class="left-box">
+        <div class="main-image">
+          <img [src]="selectedImage" alt="" />
+        </div>
+
+        <!-- Thumbnail Gallery -->
+        <div class="thumb-row">
+          <img *ngFor="let img of product.images" [src]="img" [class.active]="img === selectedImage"
+            (click)="selectedImage = img" />
+        </div>
+      </div>
+
+      <!-- RIGHT INFO SECTION -->
+      <div class="right-box">
+        <h2>{{ product.name }}</h2>
+
+        <!-- Rating -->
+        <div class="rating-row">
+          ⭐⭐⭐⭐⭐ <span class="reviews">(128 Reviews)</span>
+        </div>
+
+        <!-- Price -->
+        <div class="price">${{ product.price }}</div>
+
+        <!-- Add to cart button -->
+        <button class="cart-btn">
+          <i class="fa-solid fa-cart-shopping"></i> Add to Cart
+        </button>
+
+        <!-- Tabs -->
+        <div class="tabs">
+          <button class="tab" [class.active]="activeTab === 'desc'" (click)="activeTab = 'desc'">
+            Description
+          </button>
+
+          <button class="tab" [class.active]="activeTab === 'ingredients'" (click)="activeTab = 'ingredients'">
+            Ingredients
+          </button>
+
+          <button class="tab" [class.active]="activeTab === 'usage'" (click)="activeTab = 'usage'">
+            Usage
+          </button>
+        </div>
+
+        <!-- TAB CONTENT -->
+        <div class="tab-content">
+          <h3 *ngIf="activeTab === 'desc'">Product Description</h3>
+          <p *ngIf="activeTab === 'desc'">{{ product.description }}</p>
+
+          <h3 *ngIf="activeTab === 'ingredients'">Ingredients</h3>
+          <p *ngIf="activeTab === 'ingredients'">{{ product.ingredients }}</p>
+
+          <h3 *ngIf="activeTab === 'usage'">Usage Instructions</h3>
+          <p *ngIf="activeTab === 'usage'">{{ product.usage }}</p>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
 </div>

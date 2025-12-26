@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
+import { Product, ProductService } from '../../../common/services/product.service';
 
 @Component({
   selector: 'app-product-details',
@@ -9,34 +10,30 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
   templateUrl: './product-details.component.html',
   styleUrl: './product-details.component.scss'
 })
-export class ProductDetailsComponent {
-   product: any;
-  selectedImage: string = '';
-  activeTab = 'desc';
+export class ProductDetailsComponent implements OnInit {
 
-  products = [
-    {
-      id: 1,
-      name: 'Maviderm',
-      price: 49.00,
-      description:
-        'Experience ultimate hydration with our Revitalizing Hyaluronic Serum...',
-      ingredients: 'Aqua, Hyaluronic Acid, Glycerin, Aloe Vera...',
-      usage: 'Apply 2–3 drops daily after cleansing...',
-      images: [
-        '../../../../assets/images/mavin.png',
-        '../../../../assets/images/cat-cleanser.png',
-        '../../../../assets/images/clay-mask.png',
-      ]
-    }
-  ];
+  product!: Product;
+  selectedImage = '';
+  activeTab: 'desc' | 'ingredients' | 'usage' = 'desc';
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(
+    private route: ActivatedRoute,
+    private productService: ProductService
+  ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.product = this.products.find((p) => p.id === id);
-    this.selectedImage = this.product.images[0];
+
+    // ✅ Get product directly from service
+    const foundProduct = this.productService.getProductById(id);
+
+    if (foundProduct) {
+      this.product = foundProduct;
+      this.selectedImage = this.product.images[0];
+    }
   }
-  
+
+  changeImage(img: string) {
+    this.selectedImage = img;
+  }
 }

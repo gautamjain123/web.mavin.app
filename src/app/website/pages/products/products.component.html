@@ -107,7 +107,7 @@
         <div class="product-grid">
           <div class="card" *ngFor="let product of products">
             <div class="img-div">
-              <img [src]="product.image" alt="" />
+              <img [src]="product.images[0]" alt="" />
             </div>
             <h4 class="product-title">{{ product.name }}</h4>
             <p class="product-desc">{{ product.description }}</p>
