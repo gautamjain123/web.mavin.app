@@ -3,96 +3,84 @@
     <div class="catalog-wrapper">
 
       <!-- DESKTOP FILTERS (Hidden below 1150px) -->
-<aside class="filters">
-  <h3 class="mb-3">Filters</h3>
+      <aside class="filters">
+        <h3 class="mb-3">Filters</h3>
 
-  <div class="accordion" id="filterAccordion">
+        <div class="accordion" id="filterAccordion">
 
-    <!-- CATEGORY — stays open -->
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="catHeader">
-        <button class="accordion-button"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#catCollapse"
+          <!-- CATEGORY — stays open -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="catHeader">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#catCollapse"
                 aria-expanded="true">
-          Category
-        </button>
-      </h2>
+                Category
+              </button>
+            </h2>
 
-      <div id="catCollapse"
-           class="accordion-collapse collapse show"
-           aria-labelledby="catHeader"
-           data-bs-parent="#filterAccordion">
+            <div id="catCollapse" class="accordion-collapse collapse show" aria-labelledby="catHeader"
+              data-bs-parent="#filterAccordion">
 
-        <div class="accordion-body">
-          <div *ngFor="let item of categories">
-            <label class="d-flex gap-2">
-              <input type="checkbox" [(ngModel)]="item.selected" />
-              {{ item.name }}
-            </label>
+              <div class="accordion-body">
+                <div *ngFor="let category of categories">
+                  <label>
+                    <input type="checkbox" [(ngModel)]="category.selected" (change)="applyFilters()" />
+                    {{ category.name }}
+                  </label>
+                </div>
+
+              </div>
+
+            </div>
           </div>
-        </div>
-
-      </div>
-    </div>
 
 
-    <!-- SKIN TYPE — collapsed by default -->
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="skinHeader">
-        <button class="accordion-button collapsed"
-                type="button"
-                data-bs-toggle="collapse"
+          <!-- SKIN TYPE — collapsed by default -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="skinHeader">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                 data-bs-target="#skinCollapse">
-          Skin Type
-        </button>
-      </h2>
+                Skin Type
+              </button>
+            </h2>
 
-      <div id="skinCollapse"
-           class="accordion-collapse collapse"
-           aria-labelledby="skinHeader"
-           data-bs-parent="#filterAccordion">
+            <div id="skinCollapse" class="accordion-collapse collapse" aria-labelledby="skinHeader"
+              data-bs-parent="#filterAccordion">
 
-        <div class="accordion-body">
-          <div *ngFor="let item of skinTypes">
-            <label class="d-flex gap-2">
-              <input type="checkbox" [(ngModel)]="item.selected" />
-              {{ item.name }}
-            </label>
+              <div class="accordion-body">
+                <div *ngFor="let item of skinTypes">
+                  <label class="d-flex gap-2">
+                    <input type="checkbox" [(ngModel)]="item.selected" />
+                    {{ item.name }}
+                  </label>
+                </div>
+              </div>
+
+            </div>
           </div>
-        </div>
-
-      </div>
-    </div>
 
 
-    <!-- PRICE RANGE — collapsed by default -->
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="priceHeader">
-        <button class="accordion-button collapsed"
-                type="button"
-                data-bs-toggle="collapse"
+          <!-- PRICE RANGE — collapsed by default -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="priceHeader">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                 data-bs-target="#priceCollapse">
-          Price Range
-        </button>
-      </h2>
+                Price Range
+              </button>
+            </h2>
 
-      <div id="priceCollapse"
-           class="accordion-collapse collapse"
-           aria-labelledby="priceHeader"
-           data-bs-parent="#filterAccordion">
+            <div id="priceCollapse" class="accordion-collapse collapse" aria-labelledby="priceHeader"
+              data-bs-parent="#filterAccordion">
 
-        <div class="accordion-body">
-          <input type="range" min="10" max="100" step="1" [(ngModel)]="priceRange" />
-          <p class="mt-2 fw-semibold">₹{{ priceRange }}</p>
+              <div class="accordion-body">
+                <input type="range" min="10" max="100" step="1" [(ngModel)]="priceRange" />
+                <p class="mt-2 fw-semibold">₹{{ priceRange }}</p>
+              </div>
+
+            </div>
+          </div>
+
         </div>
-
-      </div>
-    </div>
-
-  </div>
-</aside>
+      </aside>
 
 
 
@@ -105,7 +93,7 @@
         </p>
 
         <div class="product-grid">
-          <div class="card" *ngFor="let product of products">
+          <div class="card" *ngFor="let product of filteredProducts">
             <div class="img-div">
               <img [src]="product.images[0]" alt="" />
             </div>
@@ -114,9 +102,9 @@
 
             <div class="options-div d-flex align-items-center justify-content-between w-100 gap-4">
               <div class="price">₹{{ product.price }}</div>
-              <button class="view-btn">Buy</button>
-              <i class="fa-solid fa-circle-info info-fa m-0" style="cursor: pointer;" (click)="goToDetails(product.id)">
-              </i>
+              <button class="view-btn" (click)="goToDetails(product.id)">View Details</button>
+              <!-- <i class="fa-solid fa-circle-info info-fa m-0" style="cursor: pointer;">
+              </i> -->
             </div>
           </div>
         </div>
@@ -146,7 +134,7 @@
         </div>
         <div class="sheet-content" *ngIf="categoryOpen">
           <label *ngFor="let c of categories">
-            <input type="checkbox" [(ngModel)]="c.selected"> {{ c.name }}
+            <input type="checkbox" [(ngModel)]="c.selected" (change)="applyFilters()"> {{ c.name }}
           </label>
         </div>
 
