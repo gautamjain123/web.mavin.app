@@ -1,23 +1,43 @@
+<div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 1200">
+
+  <div class="toast align-items-center text-bg-dark border-0"
+       [class.show]="showToast">
+    <div class="d-flex">
+      <div class="toast-body">
+        🛒 Product added to cart
+      </div>
+      <button class="btn-close btn-close-white me-2 m-auto"
+              (click)="showToast = false"></button>
+    </div>
+  </div>
+
+</div>
+
+
 <header class="main-header" [ngClass]="{ 'scrolled': isScrolled }">
   <div class="container">
     <div class="header-container">
 
       <!-- LOGO -->
       <div class="logo">
-        <img [routerLink]="''" src="../../../assets/logo/mavin-logo.png" alt="logo" draggable="false" style="cursor: pointer;">
+        <img [routerLink]="''" src="../../../assets/logo/mavin-logo.png" alt="logo" draggable="false"
+          style="cursor: pointer;">
       </div>
 
       <!-- RIGHT SIDE MOBILE ICONS -->
-      <div class="mobile-icons">
-        <span class="cart-icon" (click)="openCart()">🛒</span>
-        <div class="hamburger" (click)="toggleMenu()">
-          <span></span><span></span><span></span>
-        </div>
-      </div>
+      <!-- <div class="mobile-icons">
+        <span class="cart-icon" (click)="openCart()">
+          🛒
+          <span class="cart-badge" *ngIf="cartCount > 0">
+            {{ cartCount }}
+          </span>
+        </span>       
+      </div> -->
 
       <!-- NAVIGATION -->
       <nav class="nav-links" [ngClass]="{ 'open': menuOpen }">
-        <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="closeMenu()">Home</a>
+        <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
+          (click)="closeMenu()">Home</a>
         <a routerLink="/products" routerLinkActive="active" (click)="closeMenu()">Products</a>
         <a routerLink="/about-us" routerLinkActive="active" (click)="closeMenu()">About Us</a>
         <a routerLink="/contact-us" routerLinkActive="active" (click)="closeMenu()">Contact</a>
@@ -25,10 +45,21 @@
 
       <!-- DESKTOP RIGHT ICONS -->
       <div class="right-icons">
-        <span class="cart-icon" (click)="openCart()">🛒</span>
+
+        <span class="cart-icon" (click)="openCart()" id="cart-icon">
+          🛒
+          <span class="cart-badge" *ngIf="cartCount > 0">
+            {{ cartCount }}
+          </span>
+        </span>
+
         <div class="profile">
           <img src="../../../assets/icons/lucide-CircleUser-Outlined.svg" alt="profile">
           <span class="online-dot"></span>
+        </div>
+
+         <div class="hamburger" (click)="toggleMenu()">
+          <span></span><span></span><span></span>
         </div>
       </div>
     </div>

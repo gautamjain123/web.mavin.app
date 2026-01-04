@@ -3,6 +3,7 @@ import { Component, HostListener, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { CartOffcanvasComponent } from "../cart-offcanvas/cart-offcanvas.component";
+import { CartserviceService } from '../services/cartservice.service';
 
 @Component({
   selector: 'app-website-header',
@@ -18,20 +19,32 @@ export class WebsiteHeaderComponent {
   onWindowScroll() {
     this.isScrolled = window.scrollY > 30;
   }
+ cartCount = 0;
+  showToast = false;
+    constructor(private cartService: CartserviceService) {}
+  ngOnInit() {
+    this.cartService.cart$.subscribe(() => {
+      this.cartCount = this.cartService.getCartCount();
+    });
+  }
 
-
+  showAddToCartToast() {
+    this.showToast = true;
+    setTimeout(() => this.showToast = false, 2500);
+  }
   @ViewChild(CartOffcanvasComponent) cart!: CartOffcanvasComponent;
 
   openCart() {
     this.cart.open();
   }
-menuOpen = false;
+  menuOpen = false;
 
-toggleMenu() {
-  this.menuOpen = !this.menuOpen;
-}
+  toggleMenu() {
+    this.menuOpen = !this.menuOpen;
+  }
 
-closeMenu() {
-  this.menuOpen = false;
-}
+  closeMenu() {
+    this.menuOpen = false;
+  }
+  
 }

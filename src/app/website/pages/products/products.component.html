@@ -93,18 +93,21 @@
         </p>
 
         <div class="product-grid">
-          <div class="card" *ngFor="let product of filteredProducts">
+          <div class="card" *ngFor="let product of filteredProducts" style="cursor: pointer;">
             <div class="img-div">
-              <img [src]="product.images[0]" alt="" />
+              <img #productImg [src]="product.images[0]" alt="" />
             </div>
-            <h4 class="product-title">{{ product.name }}</h4>
+
+            <h4 class="product-title" (click)="goToDetails(product.id)">{{ product.name }}</h4>
             <p class="product-desc">{{ product.description }}</p>
 
             <div class="options-div d-flex align-items-center justify-content-between w-100 gap-4">
               <div class="price">₹{{ product.price }}</div>
-              <button class="view-btn" (click)="goToDetails(product.id)">View Details</button>
-              <!-- <i class="fa-solid fa-circle-info info-fa m-0" style="cursor: pointer;">
-              </i> -->
+              <button class="view-btn" (click)="addToCart(product, productImg, $event)">
+                Buy
+              </button>
+              <i (click)="goToDetails(product.id)" class="fa-solid fa-circle-info info-fa m-0" style="cursor: pointer;">
+              </i>
             </div>
           </div>
         </div>
