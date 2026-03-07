@@ -1,10 +1,9 @@
-<!-- ===============================
-     SHOP BY CATEGORY
-================================ -->
+
 <section class="mavin-category-section" id="shop-category">
   <h2 class="section-title">Shop by Category</h2>
 
-  <div class="category-slider">
+  <div class="container">
+      <div class="category-slider">
     <div
       class="cat-card"
       *ngFor="let category of categories"
@@ -16,11 +15,9 @@
       <h4>{{ category?.name }}</h4>
     </div>
   </div>
+  </div>
 </section>
 
-<!-- ===============================
-     TOP PRODUCTS
-================================ -->
 <section class="mavin-products-section">
   <div class="container">
     <h2 class="section-title">Our Bestsellers</h2>

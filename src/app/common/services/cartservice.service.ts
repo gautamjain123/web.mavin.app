@@ -110,5 +110,7 @@ export class CartserviceService {
   getCartCount(): number {
   return this.cartSubject.value.reduce((sum, item) => sum + item.qty, 0);
 }
-
+  clearCartdata() {
+  this.cartSubject.next([]);
+}
 }

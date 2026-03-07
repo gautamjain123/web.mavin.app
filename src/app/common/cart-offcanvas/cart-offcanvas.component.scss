@@ -176,3 +176,94 @@
     cursor: pointer;
   }
 }
+
+
+
+
+
+
+.checkout-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.5);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index:2000;
+}
+
+.checkout-popup{
+  width:600px;
+  background:white;
+  border-radius:12px;
+  padding:30px;
+}
+
+.popup-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:20px;
+}
+
+.popup-header button{
+  border:none;
+  background:none;
+  font-size:22px;
+  cursor:pointer;
+}
+
+.email-template{
+  font-size:14px;
+  color:#333;
+}
+
+.order-table{
+  width:100%;
+  border-collapse:collapse;
+  margin-top:15px;
+}
+
+.order-table th,
+.order-table td{
+  padding:10px;
+  border-bottom:1px solid #eee;
+}
+
+.grand-total{
+  text-align:right;
+  margin-top:15px;
+  font-size:16px;
+}
+
+.confirm-order-btn{
+  width:100%;
+  margin-top:20px;
+  padding:12px;
+  background:#fc8019;
+  border:none;
+  color:white;
+  font-weight:600;
+  border-radius:6px;
+  cursor:pointer;
+}
+
+/* SUCCESS SCREEN */
+
+.order-success{
+  text-align:center;
+}
+
+.success-icon{
+  font-size:50px;
+  margin-bottom:10px;
+}
+
+.close-btn{
+  margin-top:20px;
+  padding:10px 20px;
+  border:none;
+  background:#fc8019;
+  color:white;
+  border-radius:6px;
+}
